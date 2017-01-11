@@ -1,0 +1,38 @@
+﻿"nodexch1pa";"chêne";1000;1000;"25, 40, 60";"gros, standard, luxe"
+
+	"nodexch2pa";"chêne";1000;1500;"25, 40, 60";"gros, standard, luxe"
+
+"nodexch1pf";"chêne";1500;2000;"25, 40, 60";"gros, standard, luxe"
+
+	"nodexch2pf";"chêne";1500;3000;"25, 40, 60";"gros, standard"
+
+"nodexch1ga";"chêne";5000;5000;"25, 40, 60";"gros"
+
+	"nodexmr1pc";"merisier";700;1000;"15, 20, 30";"luxe"
+
+"nodexmr1pl";"merisier";1000;1000;"15, 20, 30";"luxe"
+
+	"nodexmr2pl";"merisier";1000;1400;"15, 20, 30";"luxe"
+
+"nodexmr1gc";"merisier";2000;2000;"15, 20, 30";"luxe"
+
+	"nodexmr2gc";"merisier";2000;2800;"15, 20, 30";"luxe"
+
+"nodexsa1pf";"sapin";1500;1500;"25, 40, 50, 65, 80";"gros, standard"
+
+	"nodexsa2pf";"sapin";1500;2000;"25, 40, 50, 65, 80";"gros, standard"
+
+"nodexsa3pf";"sapin";1500;2500;"25, 40, 50, 65, 80";"gros, standard"
+
+	"nodexsa1mf";"sapin";3000;3000;"25, 40, 50, 65, 80";"gros"
+
+"nodexsa2mf";"sapin";3000;5000;"25, 40, 50, 65, 80";"gros"
+
+	"nodexfr1pv";"frêne";1200;1200;"20, 30, 40, 50";"gros, standard"
+
+"nodexfr1mv";"frêne";1800;1800;"20, 30, 40, 50";"gros, standard"
+
+	"nodexfr2mv";"frêne";1800;3600;"20, 30, 40, 50";"gros"
+
+"nodexmllib";"mélaminé";0;0;"10, 20, 30, 40, 50, 60, 70, 80";"gros, standard"
+
