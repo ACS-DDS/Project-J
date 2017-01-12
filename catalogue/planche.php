@@ -10,13 +10,16 @@
 	</head>
 	<body>
 		<header>
-			<h2></h2>
+			<h2>Catalogue</h2>
 			<?php require("../menu_principal.php");?>
 
 		</header>
+		<hr><hr>
 		<main style="padding-top:4%;">
-			<?php require("tableaux.php");?>
+			<?php require("fget_tab.php");?>
 
 		</main>
+		<hr><hr>
+		<footer></footer>
 	</body>
 </html>

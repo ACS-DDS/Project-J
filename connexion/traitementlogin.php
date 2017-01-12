@@ -1,45 +1,35 @@
 <?php 
+
 	// Si défini deux , possibilité que sa plante le programme
-/*include_once('Membre.class.php');*/
+include_once('Membres_class.php');
 
-$clients = [];
-$clients = $row;
+?>
 
-$row = 1;
-	// je pointe le fichier et je l'ouvre clients.csv en lecture seule
-if (($handle = fopen("clients.csv", "r")) !==FALSE ):
-	// On boucle sur la variable data sur chaque ligne 
-	while (($data = fgetcsv($handle,0,",")) !==FALSE ): 
-		$num = count($data);
-		$row++;
-		for ($count =0;$count < $num; $count++):
-		echo $data[$count]."<br/>\n";
-		endfor;
-	endwhile;
-	fclose($handle);
-endif;
-$csvline = array(); // définition d'un tableau à remplir 
-	for($i =0; $i < $data; $i++) {
-		
-	}
-echo $clients;
+
+<?php 
+session_start();
 
 /*************************************
 * Variables de base 
 *************************************/
+$folder = fopen('data/clients.csv', 'r');
+ 	
+ 	while ($data = fgetcsv($folder,0,';')) {
+ 		if ($data[2] == $_POST['login'] && $data[3] == $_POST['pass']); {
+ 			$_SESSION['Logins'] = new Membres($data);
+ 			header('Location: success.php');
+ 			exit;
+ 		}
+ 		 {
+ 			echo 'identifiants incorrect';
+ 		}
+ 	}
 
 
 
 
-
-
-
-
-
-
-
-
-/*if (isset($_POST['mail'])) {
+?>
+<!-- /*if (isset($_POST['mail'])) {
 	$login = $_POST['mail'];
 	$erreur = 'Identifiants incorrect';
 }*/
@@ -52,8 +42,7 @@ echo $clients;
 * Verification du formulaire
 *************************************/
 
-	// Es que les informations ont été rempli ? 
+	// Es que les informations ont été rempli ?  -->
 
 
 
-?>

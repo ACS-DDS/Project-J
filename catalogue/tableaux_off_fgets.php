@@ -515,11 +515,13 @@
 
 			<table style="margin-top:4%;margin-left:5%;"> 
 				<thead>
+
 					<tr>
-<?php foreach ($tabs as $tab) : ?>
+<?php foreach ($tabs as $tab) { ?>
 						<th><?=$tab;?></th>
-<?php endforeach; ?>
+<?php } ?>
 					</tr>
+
 				</thead>
 				<tbody>
 
