@@ -1,4 +1,4 @@
-<?php require("../connexion/nabil/controle.php");?>
+<?php require("controle.php");?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -128,12 +128,12 @@
 			})();
 			$(window).ready(function(){
 				$("button#send").on("click",function(){
-					window.location = "http://corentinp.dijon.codeur.online/Project_J/verification/index.php";
+					window.location = "http://corentinp.dijon.codeur.online/Project_J/.final/verification";
 				});
 			});
 		</script>
 
-		<style>svg{background:url(<?=$_POST["mat"];?>.jpg);}</style>
+		<style>svg{background:url(data/imgs/<?=$_POST["mat"];?>.jpg);}</style>
 
 		<button type="button" id="send">Send Data</button>
 		<div id="output">

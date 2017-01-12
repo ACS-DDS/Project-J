@@ -1,8 +1,6 @@
 <?php 
-	
-	if(isset($_GET["error"])) {
-
-		switch ($_GET["error"]) {
+	if(isset($_GET["error"])){
+		switch ($_GET["error"]){
 			case 1:
 				echo "Veuillez vous connecter";
 				break;

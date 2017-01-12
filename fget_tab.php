@@ -1,9 +1,9 @@
-<?php require("../connexion/nabil/controle.php");?>
+<?php require("controle.php");?>
 <style>th,td{border:solid grey 2px;}</style>
 <?php
 	$r = "<br>";
 	$tabs = ["Référence","Matière","Longueur","Epaisseur","Action"];
-	$commande = fopen("produits.csv","r");
+	$commande = fopen("data/produits.csv","r");
 	$i = 0;
 	$type = [];
 	$lignes = [];
@@ -46,7 +46,7 @@
 		</thead>
 		<tbody>
 <?php foreach($type[$me] as $types) : ?>
-			<form action="http://corentinp.dijon.codeur.online/Project_J/dessin/index.php" method="post">
+			<form action="http://corentinp.dijon.codeur.online/Project_J/.final/decoupe" method="post">
 				<tr>
 					<td><?=$types[0];?></td>
 					<td><?=$types[1];?></td>
