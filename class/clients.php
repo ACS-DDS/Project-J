@@ -10,5 +10,9 @@ class Client{
 		$this->nom = $array[1];
 		$this->type = $array[4];
 	}
+	
+	public function getType() {
+		return $this->type;
+	}
 }
 ?>
