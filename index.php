@@ -16,9 +16,17 @@
 		<h1>Bienvenue chez Nodex</h1>
 		<h3>Bonjour, identifiez-vous pour continuer</h3>
 		<form action="login" method="post">
-			<input type="text" name="login" placeholder="login" value="a.dupont">
-			<input type="password" name="password" placeholder="mot de passe" value="beethoven">
+			<input type="text" name="login" placeholder="login">
+			<input type="password" name="password" placeholder="mot de passe">
 			<input type="submit" value="Connexion">
 		</form>
+		<?php 
+			if(isset($_SESSION["msg"])){
+				foreach($_SESSION["msg"] as $message) : 
+					echo $message;
+				endforeach;
+				unset($_SESSION["msg"]);
+			}
+		?>
 	</body>
 </html>

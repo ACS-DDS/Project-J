@@ -1,7 +1,5 @@
 <?php
-
 class Client{
-	
 	private $nom;
 	private $prenom;
 	private $id;
@@ -20,8 +18,7 @@ class Client{
 		$this->type = $array[4];
 	}
 
-	public function getType() {
+	public function getType(){
 		return $this->type;
 	}
 }
-?>

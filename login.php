@@ -1,25 +1,22 @@
 <?php
-require ("class/clients.php");
+require("class/clients.php");
 session_start();
 $msg = [];
 
-
-if(!isset($_POST["login"]) || $_POST["login"] == "" || !isset($_POST["password"]) || $_POST["password"] == "") {
+if(!isset($_POST["login"]) || $_POST["login"] == "" || !isset($_POST["password"]) || $_POST["password"] == ""){
 	$msg[] = "Merci de renseigner tous les champs";
 	$_SESSION["msg"] = $msg;
-	header("Location: ./");
+	header("Location: http://corentinp.dijon.codeur.online/Project_J/.final");
 	exit;
 }
 
-if (isset($_POST["login"]) && isset($_POST["password"])) {
-	$clients = fopen("data/clients.csv", "r");
+if(isset($_POST["login"]) && isset($_POST["password"])){
+	$clients = fopen("data/clients.csv","r");
 
-	while ($data = fgetcsv($clients, 0, ";")) {
-		if ($data[2] == $_POST["login"] && $data[3] == $_POST["password"]) {
-			$_SESSION["nom"] = $data[0] . " " . $data[1];
-			$_SESSION["type"] = $data[4];
+	while($data = fgetcsv($clients,0,";")) {
+		if($data[2] == $_POST["login"] && $data[3] == $_POST["password"]){
 			$_SESSION["client"] = new Client($data);
-			header("Location: ./catalogue");
+			header("Location: http://corentinp.dijon.codeur.online/Project_J/.final/catalogue");
 			exit;
 		}
 	}
@@ -27,6 +24,5 @@ if (isset($_POST["login"]) && isset($_POST["password"])) {
 
 $msg[] = "Saisie incorrecte";
 $_SESSION["msg"] = $msg;
-header("Location: ./");
-
+header("Location: http://corentinp.dijon.codeur.online/Project_J/.final");
 ?>
