@@ -5,21 +5,19 @@
 
 		<title>Catalogue</title>
 
-		<link rel="stylesheet" type="text/css" href="css/style_planche.css">
-		<link rel="stylesheet" type="text/css" href="../style_menu.css">
+		<link rel="stylesheet" type="text/css" href="data/css/style_planche.css">
 	</head>
 	<body>
 		<header>
 			<h2>Catalogue</h2>
-			<?php require("../menu_principal.php");?>
+			<?php require("menu_principal.php");?>
 
 		</header>
-		<hr><hr>
+		<hr>
 		<main style="padding-top:4%;">
 			<?php require("fget_tab.php");?>
 
 		</main>
-		<hr><hr>
-		<footer></footer>
+		<hr>
 	</body>
 </html>
