@@ -1,19 +1,20 @@
-<?php require("controle.php");?>
 <style>th,td{border:solid grey 2px;}</style>
 <?php
 	$r = "<br>";
 	$tabs = ["Référence","Matière","Longueur","Epaisseur","Action"];
-	$commande = fopen("data/produits.csv","r");
+	$commande = fopen("../.data/db/produits.csv","r");
 	$i = 0;
 	$type = [];
 	$lignes = [];
 	//$me = 2; // gros => 0 | standard => 1 | luxe => 2
-	if(isset($_SESSION["type"]) == "gros") : 
-		$me = 0;
-	elseif(isset($_SESSION["type"]) == "standard") : 
-		$me = 1;
-	elseif(isset($_SESSION["type"]) == "standard") : 
-		$me = 2;
+	if(isset($_SESSION["client"])) : 
+		if($_SESSION["client"]->getType() == "gros") : 
+			$me = 0;
+		elseif($_SESSION["client"]->getType() == "standard") : 
+			$me = 1;
+		elseif($_SESSION["client"]->getType() == "standard") : 
+			$me = 2;
+		endif;
 	endif;
 
 	while($i < 19) :
@@ -46,7 +47,7 @@
 		</thead>
 		<tbody>
 <?php foreach($type[$me] as $types) : ?>
-			<form action="http://corentinp.dijon.codeur.online/Project_J/.final/decoupe" method="post">
+			<form action="http://corentinp.dijon.codeur.online/Project_J/decoupe/" method="post">
 				<tr>
 					<td><?=$types[0];?></td>
 					<td><?=$types[1];?></td>

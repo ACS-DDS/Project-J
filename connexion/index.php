@@ -1,8 +1,8 @@
-<?php 
+<?php
 	session_start();
 
 	if(isset($_SESSION["client"])){
-		header("Location: http://corentinp.dijon.codeur.online/Project_J/.final/catalogue");
+		header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
 		exit;
 	}
 ?>
@@ -20,7 +20,7 @@
 			<input type="password" name="password" placeholder="mot de passe">
 			<input type="submit" value="Connexion">
 		</form>
-		<?php 
+		<?php
 			if(isset($_SESSION["msg"])){
 				foreach($_SESSION["msg"] as $message) : 
 					echo $message;
