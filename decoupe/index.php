@@ -1,4 +1,23 @@
-<?php require("../connexion/controle.php");
+<?php require_once("../connexion/class/clients.php");require_once("../catalogue/class/produit.php");require("../connexion/controle.php");
+
+$_SESSION["commandes"] = new Produit(fgetcsv(fopen("../.data/db/produits.csv","r"),0,";"));
+
+var_dump($_SESSION["commandes"]);
+echo "<br> ---------------------------- <br>";
+var_dump($_SESSION["commandes"]->getRef());
+echo "<br> ---------------------------- <br>";
+var_dump($_SESSION["commandes"]->getMat());
+echo "<br> ---------------------------- <br>";
+var_dump($_SESSION["commandes"]->getLong());
+echo "<br> ---------------------------- <br>";
+var_dump($_SESSION["commandes"]->getLarg());
+echo "<br> ---------------------------- <br>";
+var_dump($_SESSION["commandes"]->getEp());
+echo "<br> ---------------------------- <br>";
+/*var_dump($_SESSION["commandes"]->getCoord());*/
+
+///////////////////////
+
 if(isset($_POST["ref"])) : ?>
 <!DOCTYPE html>
 <html>
@@ -151,5 +170,5 @@ if(isset($_POST["ref"])) : ?>
 </html>
 <?php
 else :
-	header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
+	//header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
 endif;

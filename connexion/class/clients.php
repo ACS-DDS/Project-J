@@ -9,25 +9,31 @@ class Client{
 	private $type;
 
 	public function __construct($array){
-		$this->nom = $array[1];
 		$this->prenom = $array[0];
-		$this->id = $array[2];
-		$this->adr = $array[5];
-		$this->cp = $array[6];
-		$this->loc = $array[7];
-		$this->type = $array[4];
+		$this->nom    = $array[1];
+		$this->id     = $array[2];
+		$this->type   = $array[4];
+		$this->adr    = $array[5];
+		$this->cp     = $array[6];
+		$this->loc    = $array[7];
 	}
 
-	public function getType(){
-		return $this->type;
+	public function getPrenom(){
+		return $this->prenom;
 	}
 
 	public function getNom(){
 		return $this->nom;
 	}
 
-	public function getPrenom(){
-		return $this->prenom;
+	public function getId(){
+		return $this->id;
+	}
+
+
+
+	public function getType(){
+		return $this->type;
 	}
 
 	public function getAdr(){
@@ -40,10 +46,6 @@ class Client{
 
 	public function getLoc(){
 		return $this->loc;
-	}
-
-	public function getId(){
-		return $this->id;
 	}
 }
 ?>

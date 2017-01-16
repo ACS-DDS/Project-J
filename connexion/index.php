@@ -11,10 +11,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Nodex</title>
+		<link rel="stylesheet" type="text/css" href="../.data/css/styles.css">
 	</head>
 	<body>
-		<h1>Bienvenue chez Nodex</h1>
-		<h3>Bonjour, identifiez-vous pour continuer</h3>
+		<h1>Nodex</h1>
+		<h3>Identification requise</h3>
 		<form action="login" method="post">
 			<input type="text" name="login" placeholder="login">
 			<input type="password" name="password" placeholder="mot de passe">

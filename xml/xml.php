@@ -1,28 +1,68 @@
 <?php require_once("../connexion/class/clients.php");require("../connexion/controle.php");
-// {{10-100,100-10,10-10,100-100}}
+// 10-100, 100-10, 10-10, 100-100
 header("Content-type: text/xml");
 
-$xml = new SimpleXMLElement("<xml/>");
+if(!isset($_SESSION["commandes"])) : 
+	$_SESSION["commandes"] = array(
+		array(
+			"{{zero}}",
+			"{{un}}",
+			"{{deux}}",
+			"{{trois}",
+			"{{quatre}}",
+			"{{cinq}}",
+			"{{six}}"
+		),
+		array(
+			"{{reference}}",
+			"{{matiere}}",
+			"{{longueur}}",
+			"{{largeur}",
+			"{{epaisseur}}",
+			"{{prix}}",
+			"{{coordonees}}"
+		)
+	);
+endif;
 
-$nodex = $xml->addChild("nodex");
-$client = $nodex->addChild("client");
-$nom = $client->addChild("nom",$_SESSION["client"]->getNom());
-$prenom = $client->addChild("prenom",$_SESSION["client"]->getPrenom());
-$id = $client->addChild("id",$_SESSION["client"]->getId());
+$xml = new SimpleXMLElement("<nodex/>");
 
-$commandes = $nodex->addChild("commandes");
+$groupe = $xml->addChild("groupe");
+
+$groupe->addChild("membres","corentinp, nabilb, clements, yassinl, walidb");
+$groupe->addChild("name","Project_J");
+
+$client = $xml->addChild("client");
+
+$client->addChild("prenom",$_SESSION["client"]->getPrenom());
+$client->addChild("nom",$_SESSION["client"]->getNom());
+$client->addChild("adresse",$_SESSION["client"]->getAdr());
+$client->addChild("code-postal",$_SESSION["client"]->getCp());
+$client->addChild("location",$_SESSION["client"]->getLoc());
+
+$commandes = $xml->addChild("commandes");
 
 // foreach
-$produit = $commandes->addChild("produit");
-$reference = $produit->addChild("reference",$_SESSION["commandes"]->getRef());
-$matiere = $produit->addChild("matiere",$_SESSION["commandes"]->getMat());
-$longueur = $produit->addChild("longueur",$_SESSION["commandes"]->getLong());
-$largeur = $produit->addChild("largeur",$_SESSION["commandes"]->getLar());
-$epaisseur = $produit->addChild("epaisseur",$_SESSION["commandes"]->getEpa());
-$date = $produit->addChild("date",time());
-$decoupe = $produit->addChild("decoupe");
-$coordonees = $decoupe->addChild("coordonees",$_SESSION["commandes"]->getCoord());
+foreach($_SESSION["commandes"] as $produits) : 
+	$produit = $commandes->addChild("produit");
 
-$xml->saveXML("" . $_SESSION["client"]->getId() . "-" . time() . ".xml");
+	$produit->addChild("reference",$produits[0]);
+	$produit->addChild("matiere",$produits[1]);
+	$produit->addChild("longueur",$produits[2]);
+	$produit->addChild("largeur",$produits[3]);
+	$produit->addChild("epaisseur",$produits[4]);
+	$produit->addChild("prix",$produits[5]);
+	$produit->addChild("date",time());
+
+	$decoupe = $produit->addChild("decoupe");
+	$decoupe->addChild("coordonees",$produits[6]);
+endforeach;
+
+$total = $xml->addChild("total");
+
+$total->addChild("commandes",count($_SESSION["commandes"]));
+//$total->addChild("prix","10" . "€");
+
+/*$xml->saveXML("../.data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");*/
 
 print($xml->asXML());

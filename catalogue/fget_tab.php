@@ -12,7 +12,7 @@
 			$me = 0;
 		elseif($_SESSION["client"]->getType() == "standard") : 
 			$me = 1;
-		elseif($_SESSION["client"]->getType() == "standard") : 
+		elseif($_SESSION["client"]->getType() == "luxe") : 
 			$me = 2;
 		endif;
 	endif;

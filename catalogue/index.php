@@ -1,4 +1,4 @@
-<?php require("../connexion/controle.php");?>
+<?php require_once("../connexion/class/clients.php");require_once("../catalogue/class/produit.php");require("../connexion/controle.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,11 +6,19 @@
 
 		<title>Catalogue</title>
 
-		<link rel="stylesheet" type="text/css" href="../.data/css/style_cata.css?<?=time();?>">
+		<link rel="stylesheet" type="text/css" href="../.data/css/style_planche.css?<?=time();?>">
 	</head>
 	<body>
 		<header>
-			<?php include("../menu_principal.php");?>
+			<h2>Catalogue</h2>
+			<?php require("../menu_principal.php");?>
+
 		</header>
+		<hr>
+		<main style="padding-top:4%;">
+			<?php require("fget_tab.php");?>
+
+		</main>
+		<hr>
 	</body>
 </html>
