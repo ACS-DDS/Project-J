@@ -4,17 +4,17 @@ nav>ul>li>ul,nav>ul>li>ul>li>ul{padding-left:0}a,a:hover{text-decoration:none;co
 <nav>
 	<ul>
 		<li id="title">
-			<a href="http://corentinp.dijon.codeur.online/.final">Accueil</a>
+			<a href="http://corentinp.dijon.codeur.online/Project_J/connexion">Accueil</a>
 		</li>
 	</ul>
 	<ul>
 		<li id="titre">
-			<a href="http://corentinp.dijon.codeur.online/.final/catalogue">Catalogue</a>
+			<a href="http://corentinp.dijon.codeur.online/Project_J/catalogue">Catalogue</a>
 		</li>
 	</ul>
 	<ul>
 		<li id="titre">
-			<form method="post" action="./logout">
+			<form method="post" action="../connexion/logout">
 				<input type="submit" value="Déconnexion">
 			</form>
 		</li>

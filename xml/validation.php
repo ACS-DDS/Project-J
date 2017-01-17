@@ -1,4 +1,4 @@
-<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");
+<?php require_once("../connexion/class/clients.php");require_once("../decoupe/commandes.php");require("../connexion/controle.php");
 //
 ?>
 <table border="1">

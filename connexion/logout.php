@@ -6,6 +6,6 @@
 		unset($_SESSION["commandes"]);
 		unset($_SESSION["prix"]);
 
-		header("Location: http://corentinp.dijon.codeur.online/.final");
+		header("Location: http://corentinp.dijon.codeur.online/Project_J/connexion");
 	}
 ?>

@@ -1,4 +1,4 @@
-<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");
+<?php require_once("../connexion/class/clients.php");require_once("commandes.php");require("../connexion/controle.php");
 if(isset($_POST["reference"])) : 
 	if(isset($_SESSION["commandes"])) :
 		$_SESSION["commandes"]->addProduit($_POST);
@@ -13,7 +13,7 @@ if(isset($_POST["reference"])) :
 		<title>Découpe</title>
 	</head>
 	<body>
-		<?php require(".data/php/menu_principal.php");?>
+		<?php require("../menu_principal.php");?>
 		<div id="paper" style="margin:8px -8px"></div>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -138,19 +138,19 @@ if(isset($_POST["reference"])) :
 			})();
 		</script>
 
-		<style>svg{background:url(.data/img/<?=$_POST["matiere"];?>.jpg);}</style>
+		<style>svg{background:url(../.data/img/<?=$_POST["matiere"];?>.jpg);}</style>
 
-		<form action="./devisd" method="post" accept-charset="utf-8">
+		<form action="../verification/devisd" method="post" accept-charset="utf-8">
 			<input type="hidden" class="x" name="x" value="" />
 			<input type="hidden" class="y" name="y" value="" />
 			<input type="hidden" class="w" name="w" value="" />
 			<input type="hidden" class="h" name="h" value="" />
 
-			<input type="hidden" class="x" name="reference" value="<?=$_POST['reference'];?>" />
-			<input type="hidden" class="y" name="matiere" value="<?=$_POST['matiere'];?>" />
-			<input type="hidden" class="w" name="longueur" value="<?=$_POST['longueur'];?>" />
-			<input type="hidden" class="h" name="largeur" value="<?=$_POST['largeur'];?>" />
-			<input type="hidden" class="h" name="epaisseur" value="<?=$_POST['epaisseur'];?>" />
+			<input type="hidden" name="reference" value="<?=$_POST['reference'];?>" />
+			<input type="hidden" name="matiere" value="<?=$_POST['matiere'];?>" />
+			<input type="hidden" name="longueur" value="<?=$_POST['longueur'];?>" />
+			<input type="hidden" name="largeur" value="<?=$_POST['largeur'];?>" />
+			<input type="hidden" name="epaisseur" value="<?=$_POST['epaisseur'];?>" />
 
 			<input type="submit" value="Valider les modifications" />
 		</form>
@@ -158,5 +158,5 @@ if(isset($_POST["reference"])) :
 </html>
 <?php
 else :
-	header("Location: http://corentinp.dijon.codeur.online/.final/catalogue");
+	header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
 endif;

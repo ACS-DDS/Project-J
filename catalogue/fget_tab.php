@@ -2,7 +2,7 @@
 <?php
 	$r = "<br>";
 	$tabs = ["Référence","Matière","Longueur","Epaisseur","Action"];
-	$commande = fopen(".data/db/produits.csv","r");
+	$commande = fopen("../.data/db/produits.csv","r");
 	$i = 0;
 	$type = [];
 	$lignes = [];
@@ -47,7 +47,7 @@
 		</thead>
 		<tbody>
 <?php foreach($type[$me] as $types) : ?>
-			<form action="http://corentinp.dijon.codeur.online/.final/decoupe" method="post">
+			<form action="http://corentinp.dijon.codeur.online/Project_J/decoupe/" method="post">
 				<tr>
 					<td><?=$types[0];?></td>
 					<td><?=$types[1];?></td>

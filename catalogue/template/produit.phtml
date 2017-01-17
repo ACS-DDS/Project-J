@@ -1,0 +1,27 @@
+<section class="block_tab">
+	<table> 
+		<tbody>
+			<form action="http://corentinp.dijon.codeur.online/Project_J/decoupe/" method="post">
+				<tr>
+					<td><?=$this->ref;?></td>
+					<td><?=$this->mat;?></td>
+					<td><?=$this->long . " x " . $this->larg;?></td>
+					<td>
+						<select name="epaisseur">
+						<?php foreach($this->ep as $epaisseur) : ?>
+							<option value="<?=$epaisseur;?>"><?=$epaisseur;?></option>
+						<?php endforeach; ?>
+						</select>
+					</td>
+					<td>
+						<input type="submit" value="Découper "/>
+						<input type="hidden" name="reference" value="<?=$this->ref;?>" />
+						<input type="hidden" name="matiere" value="<?=$this->mat;?>" />
+						<input type="hidden" name="longueur" value="<?=$this->long;?>" />
+						<input type="hidden" name="largeur" value="<?=$this->larg;?>" />
+					</td>
+				</tr>
+			</form>
+		</tbody>
+	</table>
+</section>

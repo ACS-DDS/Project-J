@@ -1,4 +1,4 @@
-<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");
+<?php require_once("../connexion/class/clients.php");require_once("../decoupe/commandes.php");require("../connexion/controle.php");
 // 10-100, 100-10, 10-10, 100-100
 header("Content-type: text/xml");
 
@@ -39,8 +39,8 @@ $total = $xml->addChild("total");
 $total->addChild("commandes",count($_SESSION["commandes"]));
 //$total->addChild("prix","10" . "€");
 
-$xml->saveXML(".data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");
+$xml->saveXML("../.data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");
 
 print($xml->asXML());
 
-header("Location: http://corentinp.dijon.codeur.online/.final");
+//header("Location: http://corentinp.dijon.codeur.online/Project_J/connexion");

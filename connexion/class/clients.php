@@ -30,6 +30,8 @@ class Client{
 		return $this->id;
 	}
 
+
+
 	public function getType(){
 		return $this->type;
 	}
