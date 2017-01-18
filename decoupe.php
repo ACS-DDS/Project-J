@@ -1,24 +1,10 @@
-<?php require_once("../connexion/class/clients.php");require_once("../catalogue/class/produit.php");require("../connexion/controle.php");
-
-$_SESSION["commandes"] = new Produit(fgetcsv(fopen("../.data/db/produits.csv","r"),0,";"));
-
-var_dump($_SESSION["commandes"]);
-echo "<br> ---------------------------- <br>";
-var_dump($_SESSION["commandes"]->getRef());
-echo "<br> ---------------------------- <br>";
-var_dump($_SESSION["commandes"]->getMat());
-echo "<br> ---------------------------- <br>";
-var_dump($_SESSION["commandes"]->getLong());
-echo "<br> ---------------------------- <br>";
-var_dump($_SESSION["commandes"]->getLarg());
-echo "<br> ---------------------------- <br>";
-var_dump($_SESSION["commandes"]->getEp());
-echo "<br> ---------------------------- <br>";
-/*var_dump($_SESSION["commandes"]->getCoord());*/
-
-///////////////////////
-
-if(isset($_POST["ref"])) : ?>
+<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");
+if(isset($_POST["reference"])) : 
+	if(isset($_SESSION["commandes"])) :
+		$_SESSION["commandes"]->addProduit($_POST);
+	else :
+		$_SESSION["commandes"] = new Commandes($_POST);
+	endif;?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,7 +13,7 @@ if(isset($_POST["ref"])) : ?>
 		<title>Découpe</title>
 	</head>
 	<body>
-		<?php require("../menu_principal.php");?>
+		<?php require(".data/php/menu_principal.php");?>
 		<div id="paper" style="margin:8px -8px"></div>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -47,9 +33,9 @@ if(isset($_POST["ref"])) : ?>
 				var dragMove = function(dx,dy){
 					$(document).ready(function(){
 						$("form input.x").val(shapes[0].node.x.animVal.value);
-						$("form input.y").val(shapes[0].node.x.animVal.value);
-						$("form input.w").val(shapes[0].node.x.animVal.value);
-						$("form input.h").val(shapes[0].node.x.animVal.value);
+						$("form input.y").val(shapes[0].node.y.animVal.value);
+						$("form input.w").val(shapes[0].node.width.animVal.value);
+						$("form input.h").val(shapes[0].node.height.animVal.value);
 					});
 
 					// Inspect cursor to determine which resize/move process to use
@@ -128,13 +114,15 @@ if(isset($_POST["ref"])) : ?>
 					}
 				};
 				// Create drawing area
-				var paper = Raphael("paper",<?=$_POST["lon1"];?>,<?=$_POST["lon2"];?>);
+				var paper = Raphael("paper",<?=$_POST["longueur"];?>,<?=$_POST["largeur"];?>);
 
 				// Add a rectangle
 				var shapes = paper.add([{
 					"type":"rect",
 					"x":0,
 					"y":0,
+					"ry":50,
+					"rx":50,
 					"width":100,
 					"height":100,
 					"fill":"rgba(255,255,255,0.5)",
@@ -150,19 +138,19 @@ if(isset($_POST["ref"])) : ?>
 			})();
 		</script>
 
-		<style>svg{background:url(../.data/img/<?=$_POST["mat"];?>.jpg);}</style>
+		<style>svg{background:url(.data/img/<?=$_POST["matiere"];?>.jpg);}</style>
 
-		<form action="../verification/devisd" method="post" accept-charset="utf-8">
+		<form action="devisd" method="post" accept-charset="utf-8">
 			<input type="hidden" class="x" name="x" value="" />
 			<input type="hidden" class="y" name="y" value="" />
 			<input type="hidden" class="w" name="w" value="" />
 			<input type="hidden" class="h" name="h" value="" />
 
-			<input type="hidden" name="ref" value="<?=$_POST["ref"];?>" />
-			<input type="hidden" name="mat" value="<?=$_POST["mat"];?>" />
-			<input type="hidden" name="lon" value="<?=$_POST["lon1"];?>" />
-			<input type="hidden" name="lar" value="<?=$_POST["lon2"];?>" />
-			<input type="hidden" name="epa" value="<?=$_POST["epa"];?>" />
+			<input type="hidden" name="reference" value="<?=$_POST['reference'];?>" />
+			<input type="hidden" name="matiere" value="<?=$_POST['matiere'];?>" />
+			<input type="hidden" name="longueur" value="<?=$_POST['longueur'];?>" />
+			<input type="hidden" name="largeur" value="<?=$_POST['largeur'];?>" />
+			<input type="hidden" name="epaisseur" value="<?=$_POST['epaisseur'];?>" />
 
 			<input type="submit" value="Valider les modifications" />
 		</form>
@@ -170,5 +158,5 @@ if(isset($_POST["ref"])) : ?>
 </html>
 <?php
 else :
-	//header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
+	header("Location: http://corentinp.dijon.codeur.online/.poo/shop");
 endif;

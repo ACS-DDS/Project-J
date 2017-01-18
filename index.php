@@ -2,7 +2,7 @@
 	session_start();
 
 	if(isset($_SESSION["client"])){
-		header("Location: http://corentinp.dijon.codeur.online/Project_J/catalogue");
+		header("Location: http://corentinp.dijon.codeur.online/.poo/shop");
 		exit;
 	}
 ?>
@@ -10,8 +10,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+
 		<title>Nodex</title>
-		<link rel="stylesheet" type="text/css" href="../.data/css/styles.css">
+
+		<link rel="stylesheet" type="text/css" href=".data/css/styles.css">
 	</head>
 	<body>
 		<h1>Nodex</h1>

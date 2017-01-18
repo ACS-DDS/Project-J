@@ -1,29 +1,6 @@
-<?php require_once("../connexion/class/clients.php");require("../connexion/controle.php");
-// 10-100, 100-10, 10-10, 100-100
-header("Content-type: text/xml");
+<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");
 
-if(!isset($_SESSION["commandes"])) : 
-	$_SESSION["commandes"] = array(
-		array(
-			"{{zero}}",
-			"{{un}}",
-			"{{deux}}",
-			"{{trois}",
-			"{{quatre}}",
-			"{{cinq}}",
-			"{{six}}"
-		),
-		array(
-			"{{reference}}",
-			"{{matiere}}",
-			"{{longueur}}",
-			"{{largeur}",
-			"{{epaisseur}}",
-			"{{prix}}",
-			"{{coordonees}}"
-		)
-	);
-endif;
+header("Content-type: text/xml");
 
 $xml = new SimpleXMLElement("<nodex/>");
 
@@ -43,7 +20,7 @@ $client->addChild("location",$_SESSION["client"]->getLoc());
 $commandes = $xml->addChild("commandes");
 
 // foreach
-foreach($_SESSION["commandes"] as $produits) : 
+foreach($_SESSION["commandes"]->getProduits() as $produits) : 
 	$produit = $commandes->addChild("produit");
 
 	$produit->addChild("reference",$produits[0]);
@@ -51,18 +28,21 @@ foreach($_SESSION["commandes"] as $produits) :
 	$produit->addChild("longueur",$produits[2]);
 	$produit->addChild("largeur",$produits[3]);
 	$produit->addChild("epaisseur",$produits[4]);
-	$produit->addChild("prix",$produits[5]);
 	$produit->addChild("date",time());
 
 	$decoupe = $produit->addChild("decoupe");
-	$decoupe->addChild("coordonees",$produits[6]);
+	$decoupe->addChild("coordonees",$_POST["x"] . "-" . $_POST["y"] . ", " . $_POST["y"] . "-" . $_POST["w"] . ", " . $_POST["w"] . "-" . $_POST["h"] . ", " . $_POST["h"] . "-" . $_POST["x"]);
 endforeach;
 
 $total = $xml->addChild("total");
 
 $total->addChild("commandes",count($_SESSION["commandes"]));
-//$total->addChild("prix","10" . "€");
+$total->addChild("prix",$_SESSION["commandes"]->getPrix($_POST) . " ¥");
 
-/*$xml->saveXML("../.data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");*/
+$xml->saveXML(".data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");
 
 print($xml->asXML());
+
+unset($_SESSION["commandes"]);
+
+header("Location: http://corentinp.dijon.codeur.online/.poo");

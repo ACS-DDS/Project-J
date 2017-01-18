@@ -1,3 +1,13 @@
-/*body {
-	background-color: black;
-}*/
+body {
+	background-color: #585B56;
+	text-align: center;
+	margin-top:90px;
+	background-image: url('../img/bg_login.jpg');
+}
+
+input {
+	width: 20%;
+	height: 20%;
+	display: inline-block;
+	/*src: https://flic.kr/p/dZyaUu;*/
+}
