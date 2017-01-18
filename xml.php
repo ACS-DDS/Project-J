@@ -6,7 +6,7 @@ $xml = new SimpleXMLElement("<nodex/>");
 
 $groupe = $xml->addChild("groupe");
 
-$groupe->addChild("membres","corentinp, nabilb, clements, yassinl, walidb");
+$groupe->addChild("membres","corentinp, nabilb, clementd, yassinl, walidb, zohral");
 $groupe->addChild("name","Project_J");
 
 $client = $xml->addChild("client");
@@ -37,7 +37,7 @@ endforeach;
 $total = $xml->addChild("total");
 
 $total->addChild("commandes",count($_SESSION["commandes"]));
-$total->addChild("prix",$_SESSION["commandes"]->getPrix($_POST) . " ¥");
+$total->addChild("prix",$_SESSION["commandes"]->getPrix($_POST));
 
 $xml->saveXML(".data/xml/" . $_SESSION["client"]->getId() . "-" . time() . ".xml");
 
