@@ -1,4 +1,8 @@
-<?php require_once(".classes/clients.php");require_once(".classes/commandes.php");require(".data/php/controle.php");?>
+<?php
+require_once(".classes/clients.php");
+require_once(".classes/commandes.php");
+require(".data/php/controle.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>

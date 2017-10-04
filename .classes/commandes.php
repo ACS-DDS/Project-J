@@ -1,6 +1,6 @@
 <?php
 
-class Commandes{
+class Commandes {
 	protected $produits = [];
 	protected $reference;
 	protected $matiere;
@@ -11,84 +11,84 @@ class Commandes{
 	protected $prix_total;
 	protected $prix_utile;
 
-	public function __construct($array){
-		$this->produits[] = array(
-			$this->reference = $array["reference"],
-			$this->matiere   = $array["matiere"],
-			$this->longueur  = $array["longueur"],
-			$this->largeur   = $array["largeur"],
-			$this->epaisseur = $array["epaisseur"]
-		);
+	public function __construct($array) {
 		$csv = fgetcsv(fopen(".data/db/produits.csv","r"),0,";");
+
 		$this->prix_total = $csv[6];
 		$this->prix_utile = $csv[7];
-	}
-
-	public function addProduit($array){
 		$this->produits[] = array(
 			$this->reference = $array["reference"],
-			$this->matiere   = $array["matiere"],
-			$this->longueur  = $array["longueur"],
-			$this->largeur   = $array["largeur"],
+			$this->matiere = $array["matiere"],
+			$this->longueur = $array["longueur"],
+			$this->largeur = $array["largeur"],
 			$this->epaisseur = $array["epaisseur"]
 		);
 	}
 
-	public function getPrix($array){
-		$csv = fgetcsv(fopen(".data/db/produits.csv","r"),0,";");
+	public function addProduit($array) {
+		$this->produits[] = array(
+			$this->reference = $array["reference"],
+			$this->matiere = $array["matiere"],
+			$this->longueur = $array["longueur"],
+			$this->largeur = $array["largeur"],
+			$this->epaisseur = $array["epaisseur"]
+		);
+	}
+
+	public function getPrix($array) {
+		$csv = fgetcsv(fopen(".data/db/produits.csv", "r"), 0, ";");
 		$volumeTotal = ($this->longueur * $this->largeur * $this->epaisseur) / 1000;
 		$volumeUtile = (($array["w"] - $array["x"]) * ($array["h"] - $array["y"]) * $this->epaisseur) / 1000;
 
-		$prixTotal = $csv[6];;
-		$prixUtile = $csv[7];;
+		$prixTotal = $csv[6];
+		$prixUtile = $csv[7];
 
 		$prix = ($volumeUtile * $prixUtile) + (($volumeTotal - $volumeUtile) * $prixTotal);
 
-		return round($prix,2) . " ¥";
+		return round($prix, 2) . " ¥";
 	}
 
-	public function getProduits(){
+	public function getProduits() {
 		return $this->produits;
 	}
 
-	public function getRef(){
+	public function getRef() {
 		return $this->reference;
 	}
 
-	public function getMat(){
+	public function getMat() {
 		return $this->matiere;
 	}
 
-	public function getLong(){
+	public function getLong() {
 		return $this->longueur;
 	}
 
-	public function getLar(){
+	public function getLar() {
 		return $this->largeur;
 	}
 
-	public function getEpa(){
+	public function getEpa(){ 
 		return $this->epaisseur;
 	}
 
-	public function getDate(){
+	public function getDate() {
 		return $this->date;
 	}
 
-	public function getCoord(){
+	public function getCoord() {
 		return $this->coordonees;
 	}
 
-	public function getPrixTotal(){
-		$csv = fgetcsv(fopen(".data/db/produits.csv","r"),0,";");
+	public function getPrixTotal() {
+		$csv = fgetcsv(fopen(".data/db/produits.csv", "r"), 0, ";");
 
 		return $csv[6];
 	}
 
-	public function getPrixUtile(){
-		$csv = fgetcsv(fopen(".data/db/produits.csv","r"),0,";");
+	public function getPrixUtile() {
+		$csv = fgetcsv(fopen(".data/db/produits.csv", "r"), 0, ";");
 
 		return $csv[7];
 	}
 }
-?>

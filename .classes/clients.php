@@ -1,5 +1,6 @@
 <?php
-class Client{
+
+class Client {
 	private $nom;
 	private $prenom;
 	private $id;
@@ -8,44 +9,41 @@ class Client{
 	private $loc;
 	private $type;
 
-	public function __construct($array){
+	public function __construct($array) {
 		$this->prenom = $array[0];
-		$this->nom    = $array[1];
-		$this->id     = $array[2];
-		$this->type   = $array[4];
-		$this->adr    = $array[5];
-		$this->cp     = $array[6];
-		$this->loc    = $array[7];
+		$this->nom = $array[1];
+		$this->id = $array[2];
+		$this->type = $array[4];
+		$this->adr = $array[5];
+		$this->cp = $array[6];
+		$this->loc = $array[7];
 	}
 
-	public function getPrenom(){
+	public function getPrenom() {
 		return $this->prenom;
 	}
 
-	public function getNom(){
+	public function getNom() {
 		return $this->nom;
 	}
 
-	public function getId(){
+	public function getId() {
 		return $this->id;
 	}
 
-
-
-	public function getType(){
+	public function getType() {
 		return $this->type;
 	}
 
-	public function getAdr(){
+	public function getAdr() {
 		return $this->adr;
 	}
 
-	public function getCp(){
+	public function getCp() {
 		return $this->cp;
 	}
 
-	public function getLoc(){
+	public function getLoc() {
 		return $this->loc;
 	}
 }
-?>

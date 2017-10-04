@@ -6,6 +6,6 @@
 		unset($_SESSION["commandes"]);
 		unset($_SESSION["prix"]);
 
-		header("Location: http://corentinp.dijon.codeur.online/.poo");
+		header("Location: ./");
 	}
 ?>

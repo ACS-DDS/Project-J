@@ -1,6 +1,6 @@
 	<table> 
 		<tbody>
-			<form action="http://corentinp.dijon.codeur.online/.poo/decoupe" method="post">
+			<form action="./decoupe" method="post">
 				<tr>
 					<td><?=$this->ref;?></td>
 					<td><?=$this->mat;?></td>
@@ -13,7 +13,6 @@
 						</select>
 					</td>
 					<td>
-						
 						<input type="hidden" name="reference" value="<?=$this->ref;?>" />
 						<input type="hidden" name="matiere" value="<?=$this->mat;?>" />
 <?php if(isset($this->pl)) : ?>

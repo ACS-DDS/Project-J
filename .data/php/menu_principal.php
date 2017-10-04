@@ -4,12 +4,12 @@ nav>ul>li>ul,nav>ul>li>ul>li>ul{padding-left:0}a,a:hover{text-decoration:none;co
 <nav>
 	<ul>
 		<li id="title">
-			<a href="http://corentinp.dijon.codeur.online/.poo">Accueil</a>
+			<a href="./">Accueil</a>
 		</li>
 	</ul>
 	<ul>
 		<li id="titre">
-			<a href="http://corentinp.dijon.codeur.online/.poo/shop">Catalogue</a>
+			<a href="./shop">Catalogue</a>
 		</li>
 	</ul>
 	<ul>
